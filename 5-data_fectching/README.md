@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# lesson 5. Fetching
 
-## Getting Started
+22/05/2025
 
-First, run the development server:
+Server side rendering
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+src/app/(root)/about.tsx
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+export default async function Home() {
+  const response = await fetch('<https://jsonplaceholder.typicode.com/albums>');
+  if(!response.ok) throw new Error("Failed to fetch the data")
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+  const albums = await response.json()
 
-## Learn More
+  return (
+    <div className="grid grid-cols-1 sm:grid grid-cols-2 md:grid-cols">
+      <h1>Welcome to Nextjs</h1>
 
-To learn more about Next.js, take a look at the following resources:
+      {albums.map((album: {id:number, title:string}) => (
+        <div 
+        key={album.id}
+        className="bg-white shadow-md rounded-lg p-4"
+        >
+          <h3 className="text-lg font-boldmv-2">{album.title}</h3>
+          <p className="text-gray-600">Album ID: {album.id}</p>
+        </div>
+      ))}
+  
+    </div>
+  );
+}
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+N: I am a bit rusty. I was confused where the object with ok property came from, then I realize it is almbums constant. It almost like react combined with expressjs
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The end
