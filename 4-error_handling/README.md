@@ -1,6 +1,6 @@
-## 22/05/2025
+# Lesson 4. Errors
 
-Lesson 4. Errors
+22/05/2025
 
 I applied error bubling and global error. The second didn't work quite well but first did and that is enough for now
 
