@@ -548,3 +548,5 @@ const workSans = localFont({
 // in the retrun st the class to the new variable and ready to go. This info can be easy find in the offitial docs of tailwindcss
 
 the end
+
+# 

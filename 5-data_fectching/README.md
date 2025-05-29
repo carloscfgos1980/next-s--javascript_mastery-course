@@ -34,3 +34,5 @@ export default async function Home() {
 N: I am a bit rusty. I was confused where the object with ok property came from, then I realize it is almbums constant. It almost like react combined with expressjs
 
 The end
+
+#
