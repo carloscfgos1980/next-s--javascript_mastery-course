@@ -470,3 +470,81 @@ This might look confusing but once I read the official docs, it makes perfect se
 
 * I have this app in the root folder of Nexjs coz I had to upload it Github in order to use the authjs
 the end
+
+# Theme. Local fonts
+
+29/05/2025
+
+1. Install tailwindcss animate and typography
+npm i tailwindcss-animate
+npm i @tailwindcss/typography
+
+1. Downloaded a file from the tutorial github repository. I copy this folder to the app root
+
+2. I copy the font folder into app folder
+3. I replaced the favicon.ico with the one I downloaded
+4. I copied the logo to the public folder. Not used though. It is very simple how to replace it
+
+5. layout.tsx. I commented the fonts that I get by default from installation of the app that comes from google fonts
+
+6. layout.tsx. set up local fonts
+import localFont from "next/font/local";
+
+const workSans = localFont({
+  src: [
+    {
+      path: "./fonts/WorkSans-Black.ttf",
+      weight: "900",
+      style: "normal",
+    },
+    {
+      path: "./fonts/WorkSans-ExtraBold.ttf",
+      weight: "800",
+      style: "normal",
+    },
+    {
+      path: "./fonts/WorkSans-Bold.ttf",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "./fonts/WorkSans-SemiBold.ttf",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "./fonts/WorkSans-Medium.ttf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "./fonts/WorkSans-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./fonts/WorkSans-Black.ttf",
+      weight: "900",
+      style: "normal",
+    },
+    {
+      path: "./fonts/WorkSans-Thin.ttf",
+      weight: "200",
+      style: "normal",
+    },
+    {
+      path: "./fonts/WorkSans-ExtraLight.ttf",
+      weight: "100",
+      style: "normal",
+    },
+  ],
+  variable: "--font-work-sans",
+});
+
+//This script is provided by the tutorial.
+
+        className={workSans.variable}
+
+// in the retrun st the class to the new variable and ready to go. This info can be easy find in the offitial docs of tailwindcss
+
+the end
